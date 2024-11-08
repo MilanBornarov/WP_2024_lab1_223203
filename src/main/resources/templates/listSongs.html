@@ -3,10 +3,7 @@
     <meta charset="utf-8">
     <title>Songs Homepage - Welcome to My Music Store</title>
     <style type="text/css">
-        body {
-            width: 800px;
-            margin: auto;
-        }
+        body { width: 800px; margin: auto; }
     </style>
 </head>
 <body>
@@ -15,11 +12,12 @@
 </header>
 <main>
     <h2>Choose a song:</h2>
-    <form action="/artist" method="GET">
-        <div th:each="song : ${songs}">
+    <form action="/listSongs" method="post">
+        <th:block th:each="song : ${songs}">
             <input type="radio" name="trackId" th:value="${song.trackId}">
-            <span th:text="'Title: ' + ${song.title} + ', Genre: ' + ${song.genre} + ', Release Year: ' + ${song.releaseYear}"></span><br/>
-        </div>
+            <span th:text="'Title: ' + ${song.title} + ', Genre: ' + ${song.genre} + ', Release Year: ' + ${song.releaseYear}"></span>
+            <br/>
+        </th:block>
         <input type="submit" value="Submit">
     </form>
 </main>
