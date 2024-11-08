@@ -1,6 +1,8 @@
 package mk.ukim.finki.wp.lab.model;
 
 import lombok.Data;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -16,6 +18,7 @@ public class Song {
         this.title = title;
         this.genre = genre;
         this.releaseYear = releaseYear;
+        artists = new ArrayList<Artist>();
     }
 
     public void addArtist(Artist artist) {

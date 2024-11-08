@@ -30,13 +30,13 @@ public class SongListServlet extends HttpServlet {
         WebContext webContext = new WebContext(webExchange);
 
         webContext.setVariable("songs", songService.listSongs());
-        templateEngine.process("listSongs", webContext, resp.getWriter());
+        templateEngine.process("listSongs.html", webContext, resp.getWriter());
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String trackId = req.getParameter("trackId");
-        req.getSession().setAttribute("trackId", trackId);
+        req.getSession().setAttribute("trackId", songService.findByTrackId(trackId));
         resp.sendRedirect("/artist");
     }
 }

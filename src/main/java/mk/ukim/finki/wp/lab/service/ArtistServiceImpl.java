@@ -2,10 +2,10 @@ package mk.ukim.finki.wp.lab.service;
 
 import mk.ukim.finki.wp.lab.model.Artist;
 import mk.ukim.finki.wp.lab.repository.ArtistRepository;
-import mk.ukim.finki.wp.lab.service.ArtistService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ArtistServiceImpl implements ArtistService {
@@ -22,7 +22,7 @@ public class ArtistServiceImpl implements ArtistService {
     }
 
     @Override
-    public void ArtistfindById(Long id) {
-        artistRepository.findById(id);
+    public Optional<Artist> ArtistfindById(Long id) {
+        return artistRepository.findById(id);
     }
 }

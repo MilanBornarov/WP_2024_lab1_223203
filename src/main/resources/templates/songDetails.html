@@ -5,14 +5,14 @@
 </head>
 <body>
 <header>
-  <h1 th:text="${song.title}"></h1>
+  <h1 th:text="${session.trackId.title}"></h1>
 </header>
 <section>
-  <h2>Genre: <span th:text="${song.genre}"></span></h2>
-  <h2>Year: <span th:text="${song.releaseYear}"></span></h2>
-  <h2>Performers:</h2>
+  <h2>Genre: <span th:text="${session.trackId.genre}"></span></h2>
+  <h2>Year: <span th:text="${session.trackId.releaseYear}"></span></h2>
+  <h2>Artists:</h2>
   <ul>
-    <th:block th:each="artist : ${song.artists}">
+    <th:block th:each="artist : ${session.trackId.artists}">
       <li th:text="${artist.firstName}"></li>
     </th:block>
   </ul>

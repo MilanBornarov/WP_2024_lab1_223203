@@ -22,11 +22,7 @@ public class SongRepository {
         DataHolder.songList.stream()
                 .filter(b -> b.getTrackId().equals(song.getTrackId()))
                 .findFirst()
-                .ifPresent(b -> {
-                    if (!b.getArtists().contains(artist)) {
-                        b.addArtist(artist);
-                    }
-                });
+                .ifPresent(b -> b.addArtist(artist));
         return artist;
     }
 }

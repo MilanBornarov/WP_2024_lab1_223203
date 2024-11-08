@@ -27,13 +27,9 @@ public class SongDetailsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String trackId = (String) req.getSession().getAttribute("trackId");
-        Song song = songService.findByTrackId(trackId);
-
         IWebExchange webExchange = JakartaServletWebApplication.buildApplication(getServletContext()).buildExchange(req, resp);
         WebContext webContext = new WebContext(webExchange);
 
-        webContext.setVariable("song", song);
         templateEngine.process("songDetails", webContext, resp.getWriter());
     }
 }
